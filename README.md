@@ -5,7 +5,8 @@
 ![GitHub](https://img.shields.io/github/license/matt-daneshvar/laravel-resource-actions.svg)
 
 
-Almost any Laravel app would have multiple occurrences of basic CRUD actions.
+If you've already built a dozen Laravel apps and if you're anything like me, 
+you're absolutely sick of rewriting basic CRUD controllers. 
 This package DRYs up your code by extracting those repetitive actions into a few magical traits. 
 
 
@@ -18,7 +19,7 @@ composer require matt-daneshvar/laravel-resource-actions
 
 ## Usage
 
-With this package you may write: 
+Once installed, you can write: 
 
 ```php
 class TaskController extends BaseController
