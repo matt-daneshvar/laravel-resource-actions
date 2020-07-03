@@ -1,7 +1,7 @@
 # Laravel Resource Actions
 
 ![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/matt-daneshvar/laravel-resource-actions)
-[![Build Status](https://travis-ci.org/matt-daneshvar/laravel-resource-actions.svg?branch=master)](https://travis-ci.org/matt-daneshvar/laravel-resource-controller)
+[![Build Status](https://travis-ci.org/matt-daneshvar/laravel-resource-actions.svg?branch=master)](https://travis-ci.org/matt-daneshvar/laravel-resource-actions)
 ![GitHub](https://img.shields.io/github/license/matt-daneshvar/laravel-resource-actions.svg)
 
 
