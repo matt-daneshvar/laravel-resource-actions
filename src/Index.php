@@ -2,6 +2,8 @@
 
 namespace MattDaneshvar\ResourceActions;
 
+use Illuminate\Support\Str;
+
 trait Index
 {
     use ResourceAction;
@@ -10,6 +12,8 @@ trait Index
     {
         $viewDirectory = $this->getViewDirectory();
 
-        return view("$viewDirectory.index", ['tasks' => $this->getQueryBuilder()->paginate(20)]);
+        $pluralResourceName = Str::lower(Str::plural($this->getResourceName()));
+
+        return view("$viewDirectory.index", [$pluralResourceName => $this->getQueryBuilder()->paginate(20)]);
     }
 }
