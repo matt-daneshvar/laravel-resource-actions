@@ -2,10 +2,9 @@
 
 namespace MattDaneshvar\ResourceActions\Tests;
 
-use Illuminate\Contracts\View\View;
-use Orchestra\Testbench\TestCase;
 use Illuminate\Database\Eloquent\Collection;
 use MattDaneshvar\ResourceActions\Tests\Utilities\Task;
+use Orchestra\Testbench\TestCase;
 
 abstract class BaseCase extends TestCase
 {
