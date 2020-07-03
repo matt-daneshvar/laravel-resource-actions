@@ -25,7 +25,7 @@ trait ResourceAction
 
     protected function getResourceClass()
     {
-        if (isset($this->resouce)) {
+        if (isset($this->resource)) {
             return $this->resource;
         }
 
