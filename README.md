@@ -21,62 +21,70 @@ composer require matt-daneshvar/laravel-resource-actions
 With this package you may write: 
 
 ```php
-class TaskController extends BaseController {
-  use Index, Create, Store, Show, Edit, Update, Destroy;
-  
-  protected $rules = [
-    'name' => 'required|string|max:250'
-  ];
+class TaskController extends BaseController
+{
+    use Index, Create, Store, Show, Edit, Update, Destroy;
+
+    protected $rules = [
+        'name' => 'required|string|max:250'
+    ];
 }
 ```
 
 Instead of: 
 
 ```php
-class TaskController extends BaseController {
-  protected $rules = [
-    'name' => 'required|string|max:250'
-  ];
+class TaskController extends BaseController
+{
+    protected $rules = [
+        'name' => 'required|string|max:250'
+    ];
 
-  public function index(){
-    return view('task.index', ['tasks' => Task::paginate(20)]);
-  }
-  
-  public function create(){
-    return view('task.create');
-  }
-  
-  public function store(Request $request){
-    $input = $request->validate($this->rules);
-    
-    Task::create($input);
-    
-    return back()->with('success', 'A new task is successfully created.');
-  }
-  
-  public function show(Task $task){
-    return view('task.show', ['task' => $task]);
-  }
-  
-  public function edit(Task $task){
-    return view('task.edit', ['task' => $task]);
-  }
-  
-  public function update(Task $task, Request $request){
-    $input = $request->validate($this->rules);
-    
-    $task->update($input);
-    
-    return back()->with('success', 'The task is successfully updated.');
-  }
-  
-  public function destroy(Task $task){
-    $task->delete();
-    
-    return back()->with('success', 'The task is successfully deleted.');
-  }
+    public function index()
+    {
+        return view('task.index', ['tasks' => Task::paginate(20)]);
+    }
+
+    public function create()
+    {
+        return view('task.create');
+    }
+
+    public function store(Request $request)
+    {
+        $input = $request->validate($this->rules);
+
+        Task::create($input);
+
+        return back()->with('success', 'A new task is successfully created.');
+    }
+
+    public function show(Task $task)
+    {
+        return view('task.show', ['task' => $task]);
+    }
+
+    public function edit(Task $task)
+    {
+        return view('task.edit', ['task' => $task]);
+    }
+
+    public function update(Task $task, Request $request)
+    {
+        $input = $request->validate($this->rules);
+
+        $task->update($input);
+
+        return back()->with('success', 'The task is successfully updated.');
+    }
+
+    public function destroy(Task $task)
+    {
+        $task->delete();
+
+        return back()->with('success', 'The task is successfully deleted.');
+    }
 }
-
 ```
 
 ### Index
@@ -85,18 +93,21 @@ The `index` action returns the `resource.index` view with a paginated collection
 so that you may write:
 
 ```php
-class TaskController extends BaseController {
-  use Index;
+class TaskController extends BaseController
+{
+    use Index;
 }
 ```
 
 Instead of:
 
 ```php
-class TaskController extends BaseController {
-  public function index(){
-    return view('task.index', ['tasks' => Task::paginate(20)]);
-  }
+class TaskController extends BaseController
+{
+    public function index()
+    {
+        return view('task.index', ['tasks' => Task::paginate(20)]);
+    }
 }
 ```
 
@@ -106,18 +117,21 @@ The `create` action returns the `resource.create` view,
 so that you may write:
 
 ```php
-class TaskController extends BaseController {
-  use Create;
+class TaskController extends BaseController
+{
+    use Create;
 }
 ```
 
 Instead of:
 
 ```php
-class TaskController extends BaseController {
-  public function create(){
-    return view('task.create');
-  }
+class TaskController extends BaseController
+{
+    public function create()
+    {
+        return view('task.create');
+    }
 }
 ```
 
@@ -125,28 +139,31 @@ class TaskController extends BaseController {
 
 The `store` action validates the request against the `$rules`,
 persists a new model, 
-and returns a success message.
+and returns back with a success message.
 For this action you may write:
 
 ```php
-class TaskController extends BaseController {
-  use Store;
-  
-  protected $rules = ['name' => 'required|string|max:250'];
+class TaskController extends BaseController
+{
+    use Store;
+
+    protected $rules = ['name' => 'required|string|max:250'];
 }
 ```
 
 Instead of:
 
 ```php
-class TaskController extends BaseController {
-  public function store(Request $request){
-    $input = $request->validate($this->rules);
-    
-    Task::create($input);
-    
-    return back()->with('success', 'A new task is successfully created.');
-  }
+class TaskController extends BaseController
+{
+    public function store(Request $request)
+    {
+        $input = $request->validate($this->rules);
+
+        Task::create($input);
+
+        return back()->with('success', 'A new task is successfully created.');
+    }
 }
 ```
 
@@ -156,18 +173,101 @@ The `show` action returns the `resource.show` view with the relevant model,
 so that you may write:
 
 ```php
-class TaskController extends BaseController {
-  use Show;
+class TaskController extends BaseController
+{
+    use Show;
 }
 ```
 
 Instead of:
 
 ```php
-class TaskController extends BaseController {
-  public function show(Task $task){
-    return view('task.show', ['task' => $task]);
-  }
+class TaskController extends BaseController
+{
+    public function show(Task $task)
+    {
+        return view('task.show', ['task' => $task]);
+    }
+}
+```
+
+### Edit (Coming Soon)
+
+The `edit` action returns the `resource.edit` view with the relevant model, 
+so that you may write:
+
+```php
+class TaskController extends BaseController
+{
+    use Edit;
+}
+```
+
+Instead of:
+
+```php
+class TaskController extends BaseController
+{
+    public function edit(Task $task)
+    {
+        return view('task.edit', ['task' => $task]);
+    }
+}
+```
+
+### Update (Coming Soon)
+
+The `update` action validates the request against the `$rules`,
+updates the relevant model, 
+and returns back a success message.
+For this action you may write:
+
+```php
+class TaskController extends BaseController
+{
+    use Update;
+}
+```
+
+Instead of:
+
+```php
+class TaskController extends BaseController
+{
+    public function update(Task $task, Request $request)
+    {
+        $input = $request->validate($this->rules);
+
+        $task->update($input);
+
+        return back()->with('success', 'The task is successfully updated.');
+    }
+}
+```
+
+### Destroy (Coming Soon)
+
+The `destroy` action deletes the relevant model and returns back with a success message.
+For this action you may write:
+
+```php
+class TaskController extends BaseController
+{
+    use Destroy;
+}
+```
+
+Instead of:
+
+```php
+class TaskController extends BaseController
+{
+    public function destroy(Task $task)
+    {
+        $task->delete();
+
+        return back()->with('success', 'The task is successfully deleted.');
+    }
 }
 ```
 
