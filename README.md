@@ -136,7 +136,7 @@ class TaskController extends BaseController
 
 The `store` action validates the request against the `$rules`,
 persists a new model, 
-and returns back with a success message.
+and redirects back with a success message.
 For this action you may write:
 
 ```php
@@ -218,7 +218,7 @@ class TaskController extends BaseController
 
 The `update` action validates the request against the `$rules`,
 updates the relevant model, 
-and returns back a success message.
+and redirects back with a success message.
 For this action you may write:
 
 ```php
@@ -250,7 +250,7 @@ class TaskController extends BaseController
 
 ### Destroy
 
-The `destroy` action deletes the relevant model and returns back with a success message.
+The `destroy` action deletes the relevant model and redirects back with a success message.
 For this action you may write:
 
 ```php
