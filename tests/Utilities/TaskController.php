@@ -8,6 +8,4 @@ use MattDaneshvar\ResourceActions\Index;
 class TaskController extends BaseController
 {
     use Index, Create;
-
-
 }
