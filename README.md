@@ -190,7 +190,7 @@ class TaskController extends BaseController
 }
 ```
 
-### Edit (Coming Soon)
+### Edit
 
 The `edit` action returns the `resource.edit` view with the relevant model, 
 so that you may write:
