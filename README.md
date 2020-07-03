@@ -9,10 +9,6 @@ This package DRYs up your code by extracting those repetitive actions into a few
 This package helps you write: 
 
 ```php
-<?php
-
-use MattDaneshvar\ResourceActions\{Index, Create, Store, Show, Edit, Update, Destroy};
-
 class TaskController extends BaseController {
   use Index, Create, Store, Show, Edit, Update, Destroy;
   
@@ -24,9 +20,8 @@ class TaskController extends BaseController {
 ```
 
 Instead of: 
-```php
-<?php
 
+```php
 class TaskController extends BaseController {
   protected $rules = [
     'name' => 'required|string|max:250'
