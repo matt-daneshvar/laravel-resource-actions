@@ -1,7 +1,9 @@
 # Laravel Resource Actions
 
+![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/matt-daneshvar/laravel-resource-actions)
 [![Build Status](https://travis-ci.org/matt-daneshvar/laravel-resource-actions.svg?branch=master)](https://travis-ci.org/matt-daneshvar/laravel-resource-controller)
 ![GitHub](https://img.shields.io/github/license/matt-daneshvar/laravel-resource-actions.svg)
+
 
 Almost any Laravel app would have multiple occurrences of basic CRUD actions.
 This package DRYs up your code by extracting those repetitive actions into a few magical traits. 
