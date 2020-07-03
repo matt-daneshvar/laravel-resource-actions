@@ -25,9 +25,7 @@ class TaskController extends BaseController
 {
     use Index, Create, Store, Show, Edit, Update, Destroy;
 
-    protected $rules = [
-        'name' => 'required|string|max:250'
-    ];
+    protected $rules = ['name' => 'required|string|max:250'];
 }
 ```
 
@@ -36,9 +34,7 @@ Instead of:
 ```php
 class TaskController extends BaseController
 {
-    protected $rules = [
-        'name' => 'required|string|max:250'
-    ];
+    protected $rules = ['name' => 'required|string|max:250'];
 
     public function index()
     {
@@ -156,6 +152,8 @@ Instead of:
 ```php
 class TaskController extends BaseController
 {
+    protected $rules = ['name' => 'required|string|max:250'];
+    
     public function store(Request $request)
     {
         $input = $request->validate($this->rules);
@@ -226,6 +224,8 @@ For this action you may write:
 class TaskController extends BaseController
 {
     use Update;
+    
+    protected $rules = ['name' => 'required|string|max:250'];
 }
 ```
 
@@ -234,6 +234,8 @@ Instead of:
 ```php
 class TaskController extends BaseController
 {
+    protected $rules = ['name' => 'required|string|max:250'];
+    
     public function update(Task $task, Request $request)
     {
         $input = $request->validate($this->rules);
