@@ -2,9 +2,9 @@
 
 namespace MattDaneshvar\ResourceActions\Tests;
 
+use MattDaneshvar\ResourceActions\Destroy;
 use MattDaneshvar\ResourceActions\Tests\Utilities\BaseController;
 use MattDaneshvar\ResourceActions\Tests\Utilities\Task;
-use MattDaneshvar\ResourceActions\Destroy;
 
 class DestroyTest extends BaseCase
 {
