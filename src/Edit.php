@@ -3,18 +3,19 @@
 namespace MattDaneshvar\ResourceActions;
 
 use Illuminate\Support\Str;
-use MattDaneshvar\ResourceActions\Tests\Utilities\Task;
 
 trait Edit
 {
     use ResourceAction;
 
-    public function edit(Task $task)
+    public function edit($key)
     {
+        $model = $this->getResource()->resolveRouteBinding($key);
+
         $viewDirectory = $this->getViewDirectory();
 
         $resourceName = Str::lower($this->getResourceName());
 
-        return view("$viewDirectory.edit", [$resourceName => $task]);
+        return view("$viewDirectory.edit", [$resourceName => $model]);
     }
 }

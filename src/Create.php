@@ -10,6 +10,6 @@ trait Create
     {
         $viewDirectory = $this->getViewDirectory();
 
-        return view("$viewDirectory.create", ['tasks' => $this->getResource()->paginate(20)]);
+        return view("$viewDirectory.create");
     }
 }

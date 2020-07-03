@@ -18,7 +18,6 @@ class CreateTest extends BaseCase
         };
 
         $this->getResponse($controller->create())
-            ->assertViewIs('task.create')
-            ->assertViewHas('tasks');
+            ->assertViewIs('task.create');
     }
 }
