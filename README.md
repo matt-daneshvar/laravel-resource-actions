@@ -5,8 +5,8 @@
 ![GitHub](https://img.shields.io/github/license/matt-daneshvar/laravel-resource-actions.svg)
 
 
-If you've already built a dozen Laravel apps and if you're anything like me, 
-you're absolutely sick of rewriting basic CRUD controllers. 
+If you've built a dozen Laravel apps and if you're anything like me, 
+you're tired of rewriting basic CRUD controllers a thousand times. 
 This package DRYs up your code by extracting those repetitive actions into a few magical traits. 
 
 
