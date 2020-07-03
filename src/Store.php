@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 trait Store
 {
-    use ResourceAction;
+    use ResourceActionBase;
 
     public function store(Request $request)
     {

@@ -4,7 +4,7 @@ namespace MattDaneshvar\ResourceActions;
 
 trait Destroy
 {
-    use ResourceAction;
+    use ResourceActionBase;
 
     public function destroy($key)
     {

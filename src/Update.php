@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 trait Update
 {
-    use ResourceAction;
+    use ResourceActionBase;
 
     public function update($key, Request $request)
     {

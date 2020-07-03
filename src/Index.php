@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 trait Index
 {
-    use ResourceAction;
+    use ResourceActionBase;
 
     public function index()
     {

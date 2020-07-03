@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 trait Show
 {
-    use ResourceAction;
+    use ResourceActionBase;
 
     public function show($key)
     {

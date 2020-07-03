@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 trait Edit
 {
-    use ResourceAction;
+    use ResourceActionBase;
 
     public function edit($key)
     {

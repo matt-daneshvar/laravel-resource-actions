@@ -4,7 +4,7 @@ namespace MattDaneshvar\ResourceActions;
 
 trait Create
 {
-    use ResourceAction;
+    use ResourceActionBase;
 
     public function create()
     {

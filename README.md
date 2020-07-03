@@ -84,7 +84,9 @@ class TaskController extends BaseController
 }
 ```
 
-### Index
+### Actions
+
+#### Index
 
 The `index` action returns the `resource.index` view with a paginated collection of the relevant model,
 so that you may write:
@@ -108,7 +110,7 @@ class TaskController extends BaseController
 }
 ```
 
-### Create
+#### Create
 
 The `create` action returns the `resource.create` view, 
 so that you may write:
@@ -132,7 +134,7 @@ class TaskController extends BaseController
 }
 ```
 
-### Store
+#### Store
 
 The `store` action validates the request against the `$rules`,
 persists a new model, 
@@ -166,7 +168,7 @@ class TaskController extends BaseController
 }
 ```
 
-### Show
+#### Show
 
 The `show` action returns the `resource.show` view with the relevant model, 
 so that you may write:
@@ -190,7 +192,7 @@ class TaskController extends BaseController
 }
 ```
 
-### Edit
+#### Edit
 
 The `edit` action returns the `resource.edit` view with the relevant model, 
 so that you may write:
@@ -214,7 +216,7 @@ class TaskController extends BaseController
 }
 ```
 
-### Update
+#### Update
 
 The `update` action validates the request against the `$rules`,
 updates the relevant model, 
@@ -248,7 +250,7 @@ class TaskController extends BaseController
 }
 ```
 
-### Destroy
+#### Destroy
 
 The `destroy` action deletes the relevant model and redirects back with a success message.
 For this action you may write:
@@ -273,6 +275,28 @@ class TaskController extends BaseController
     }
 }
 ```
+
+### Using All Actions
+
+If you intend to include all 7 resource actions in your controller, 
+you may use the `ResourceActions` trait as an alias:
+
+```php
+class TaskController extends BaseController
+{
+    use ResourceActions;
+}
+```
+
+Which is equivalent to:
+
+```php
+class TaskController extends BaseController
+{
+    use Index, Create, Store, Show, Edit, Update, Destroy;
+}
+```
+
 
 ## License
 
