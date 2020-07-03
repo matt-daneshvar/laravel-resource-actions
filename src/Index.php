@@ -4,7 +4,7 @@ namespace MattDaneshvar\ResourceActions;
 
 trait Index
 {
-    use Create;
+    use ResourceAction;
 
     public function index()
     {

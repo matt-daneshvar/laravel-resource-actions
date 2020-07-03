@@ -5,6 +5,7 @@ namespace MattDaneshvar\ResourceActions\Tests;
 use Illuminate\Database\Eloquent\Collection;
 use MattDaneshvar\ResourceActions\Tests\Utilities\Task;
 use Orchestra\Testbench\TestCase;
+use ReflectionClass;
 
 abstract class BaseCase extends TestCase
 {
@@ -24,7 +25,6 @@ abstract class BaseCase extends TestCase
      * Load views from the given path.
      *
      * @param $path
-     * @param $namespace
      */
     protected function loadViewsFrom($path)
     {
@@ -34,7 +34,7 @@ abstract class BaseCase extends TestCase
     /**
      * Create n dummy tasks.
      *
-     * @param int $n
+     * @param  int  $n
      * @return \Illuminate\Support\Collection $tasks
      */
     protected function createTasks($n = 1)
@@ -53,12 +53,31 @@ abstract class BaseCase extends TestCase
      * @param  \Illuminate\Http\Response  $response
      * @return \Illuminate\Testing\TestResponse
      */
-    public function getResponse($response)
+    protected function getResponse($response)
     {
         $testResponse = $this->createTestResponse($response);
 
         $testResponse->original = $response;
 
         return $testResponse;
+    }
+
+    /**
+     * Get access to invokable method regardless of its access level.
+     *
+     * @param $class
+     * @param $name
+     * @return \ReflectionMethod
+     * @throws \ReflectionException
+     */
+    protected function getMethod($class, $name)
+    {
+        $class = new ReflectionClass($class);
+
+        $method = $class->getMethod($name);
+
+        $method->setAccessible(true);
+
+        return $method;
     }
 }

@@ -25,6 +25,14 @@ trait ResourceAction
 
     protected function getResourceClass()
     {
-        return $this->resource;
+        if(isset($this->resouce)){
+            return $this->resource;
+        }
+
+        $classBasename = str_replace('Controller', '', class_basename($this));
+
+        $classNameWithModelFolder = "App\Models\\$classBasename";
+
+        return class_exists($classNameWithModelFolder) ? $classNameWithModelFolder : "App\\$classBasename";
     }
 }
