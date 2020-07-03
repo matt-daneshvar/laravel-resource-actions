@@ -5,18 +5,20 @@ namespace MattDaneshvar\ResourceActions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-trait Store
+trait Update
 {
     use ResourceAction;
 
-    public function store(Request $request)
+    public function update($key, Request $request)
     {
+        $model = $this->getResource()->resolveRouteBinding($key);
+
         $input = $request->validate($this->rules ?? []);
 
-        $this->getResource()->create($input);
+        $model->update($input);
 
         $resourceName = Str::lower($this->getResourceName());
 
-        return back()->with('success', "A new $resourceName is successfully created.");
+        return back()->with('success', "A new $resourceName is successfully updated.");
     }
 }

@@ -40,8 +40,11 @@ abstract class BaseCase extends TestCase
     protected function createTasks($n = 1)
     {
         $tasks = new Collection();
+
         for ($i = 1; $i <= $n; $i++) {
-            $tasks->add(Task::create(['name' => "Task $i"]));
+            $task = Task::create(['name' => "Task $i"]);
+
+            $tasks->add($task);
         }
 
         return $tasks;

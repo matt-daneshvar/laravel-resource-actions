@@ -14,6 +14,6 @@ trait Index
 
         $pluralResourceName = Str::lower(Str::plural($this->getResourceName()));
 
-        return view("$viewDirectory.index", [$pluralResourceName => $this->getQueryBuilder()->paginate(20)]);
+        return view("$viewDirectory.index", [$pluralResourceName => $this->getResource()->paginate(20)]);
     }
 }

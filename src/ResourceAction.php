@@ -11,11 +11,11 @@ trait ResourceAction
         return Str::lower($this->getResourceName());
     }
 
-    protected function getQueryBuilder()
+    protected function getResource()
     {
         $class = $this->getResourceClass();
 
-        return (new $class)->query();
+        return (new $class);
     }
 
     protected function getResourceName()
