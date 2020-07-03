@@ -15,7 +15,7 @@ trait ResourceAction
     {
         $class = $this->getResourceClass();
 
-        return (new $class);
+        return new $class;
     }
 
     protected function getResourceName()

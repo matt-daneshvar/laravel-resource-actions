@@ -4,9 +4,9 @@ namespace MattDaneshvar\ResourceActions\Tests;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
-use MattDaneshvar\ResourceActions\Update;
 use MattDaneshvar\ResourceActions\Tests\Utilities\BaseController;
 use MattDaneshvar\ResourceActions\Tests\Utilities\Task;
+use MattDaneshvar\ResourceActions\Update;
 
 class UpdateTest extends BaseCase
 {
