@@ -3,8 +3,15 @@
 [![Build Status](https://travis-ci.org/matt-daneshvar/laravel-resource-actions.svg?branch=master)](https://travis-ci.org/matt-daneshvar/laravel-resource-controller)
 ![GitHub](https://img.shields.io/github/license/matt-daneshvar/laravel-resource-actions.svg)
 
-Almost any Laravel app would have multiple occurances of basic CRUD actions.
+Almost any Laravel app would have multiple occurrences of basic CRUD actions.
 This package DRYs up your code by extracting those repetitive actions into a few magical traits. 
+
+
+## Installation
+Require the package using composer:
+```
+composer require matt-daneshvar/laravel-resource-actions
+```
 
 ## Usage
 
@@ -18,7 +25,6 @@ class TaskController extends BaseController {
     'name' => 'required|string|max:250'
   ];
 }
-
 ```
 
 Instead of: 
@@ -69,3 +75,22 @@ class TaskController extends BaseController {
 }
 
 ```
+
+### Index Action
+The `index` action returns the `resource.index` view with a paginated collection of the resource.
+```php
+class TaskController extends BaseController {
+  use Index;
+}
+```
+
+### Create Action
+The `create` action returns the `resource.create` view.
+```php
+class TaskController extends BaseController {
+  use Create;
+}
+```
+
+## License
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
