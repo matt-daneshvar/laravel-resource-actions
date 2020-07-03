@@ -10,6 +10,7 @@ This package DRYs up your code by extracting those repetitive actions into a few
 
 
 ## Installation
+
 Require the package using composer:
 ```
 composer require matt-daneshvar/laravel-resource-actions
@@ -17,7 +18,7 @@ composer require matt-daneshvar/laravel-resource-actions
 
 ## Usage
 
-This package helps you write: 
+With this package you may write: 
 
 ```php
 class TaskController extends BaseController {
@@ -78,21 +79,69 @@ class TaskController extends BaseController {
 
 ```
 
-### Index Action
-The `index` action returns the `resource.index` view with a paginated collection of the resource.
+### Index
+
+The `index` action returns the `resource.index` view with a paginated collection of the relevant model,
+so that you may write:
+
 ```php
 class TaskController extends BaseController {
   use Index;
 }
 ```
 
-### Create Action
-The `create` action returns the `resource.create` view.
+Instead of:
+
+```php
+class TaskController extends BaseController {
+  public function index(){
+    return view('task.index', ['tasks' => Task::paginate(20)]);
+  }
+}
+```
+
+### Create
+
+The `create` action returns the `resource.create` view, 
+so that you may write:
+
 ```php
 class TaskController extends BaseController {
   use Create;
 }
 ```
 
+Instead of:
+
+```php
+class TaskController extends BaseController {
+  public function create(){
+    return view('task.create');
+  }
+}
+```
+
+### Show
+
+The `show` action returns the `resource.show` view with the relevant model, 
+so that you may write:
+
+```php
+class TaskController extends BaseController {
+  use Show;
+}
+```
+
+Instead of:
+
+```php
+class TaskController extends BaseController {
+  public function show(Task $task){
+    return view('task.show', ['task' => $task]);
+  }
+}
+```
+
 ## License
+
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
