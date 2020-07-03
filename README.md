@@ -214,7 +214,7 @@ class TaskController extends BaseController
 }
 ```
 
-### Update (Coming Soon)
+### Update
 
 The `update` action validates the request against the `$rules`,
 updates the relevant model, 
@@ -248,7 +248,7 @@ class TaskController extends BaseController
 }
 ```
 
-### Destroy (Coming Soon)
+### Destroy
 
 The `destroy` action deletes the relevant model and returns back with a success message.
 For this action you may write:
