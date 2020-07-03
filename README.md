@@ -121,6 +121,35 @@ class TaskController extends BaseController {
 }
 ```
 
+### Store
+
+The `store` action validates the request against the `$rules`,
+persists a new model, 
+and returns a success message.
+For this action you may write:
+
+```php
+class TaskController extends BaseController {
+  use Store;
+  
+  protected $rules = ['name' => 'required|string|max:250'];
+}
+```
+
+Instead of:
+
+```php
+class TaskController extends BaseController {
+  public function store(Request $request){
+    $input = $request->validate($this->rules);
+    
+    Task::create($input);
+    
+    return back()->with('success', 'A new task is successfully created.');
+  }
+}
+```
+
 ### Show
 
 The `show` action returns the `resource.show` view with the relevant model, 
